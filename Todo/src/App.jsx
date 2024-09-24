@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 
 
 const App = () => {
@@ -31,39 +32,56 @@ const App = () => {
     setTasks(updatedTasks);
   };
 
-  const saveTask = (index) => {
-    const updatedTasks = tasks.map((task, i) =>
-      i === index ? { ...task, isEditing: false } : task
-    );
-    setTasks(updatedTasks);
+  const saveTask = (text, index) => {
+    if(text.trim()===''){
+      alert("Todo can't be empty");
+      deleteTask(index);
+    }
+    else{
+      const updatedTasks = tasks.map((task, i) =>
+        i === index ? { ...task, isEditing: false } : task
+      );
+      setTasks(updatedTasks);
+    }
   };
 
   return (
-    <div className="todo-list">
-      <h1>TODO List</h1>
-      <input
-        type="text"
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
-        placeholder="Add a new task"
-      />
-      <button onClick={addTask}>ADD</button>
-      <ul>
+    <div className="todo">
+      <div className="header">
+        <h1>TODO LIST</h1>
+        <div className="input-area">
+          <input
+            type="text"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+            placeholder="Add items..."
+          />
+          <button onClick={addTask}>ADD</button>
+        </div>
+      </div>
+      <ul className="todo-list">
         {tasks.map((task, index) => (
-          <li key={index}>
+          <li className="task" key={index}>
             {task.isEditing ? (
-              <input
-                type="text"
+              <textarea
                 value={task.text}
                 onChange={(e) => handleTaskChange(index, e.target.value)}
               />
             ) : (
-              <span>{task.text}</span>
+              <div>{task.text}</div>
             )}
-            <button onClick={() => task.isEditing ? saveTask(index) : editTask(index)}>
-              {task.isEditing ? 'Save' : 'Edit'}
-            </button>
-            <button onClick={() => deleteTask(index)}>Delete</button>
+            <div className="btn">
+              <button
+                onClick={() =>
+                  task.isEditing ? saveTask(task.text, index) : editTask(index)
+                }
+              >
+                {task.isEditing ? "Save" : "Edit"}
+              </button>
+              <button className="Delete" onClick={() => deleteTask(index)}>
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>
