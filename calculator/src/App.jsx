@@ -2,12 +2,12 @@ import { useState } from 'react'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <>
+    <div style={{display:"flex", justifyContent: "center", alignItems: "center", flexDirection:"column" }}>
       
-    </>
+    </div>
   )
 }
 
