@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css'
 
 function App() {
   const [data, setData] = useState({
@@ -92,20 +93,14 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='container'> 
       <form
+        className='form'
         onSubmit={handleSubmit}
-        style={{ 
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-          width: "40vw",
-          marginLeft: "auto",
-          marginRight: "auto", 
-        }}
       >
         <label>First Name*</label>
         <input
+          className='input-field'
           type='text'
           name='firstname'
           placeholder='Enter First Name'
@@ -116,6 +111,7 @@ function App() {
 
         <label>Last Name*</label>
         <input
+          className='input-field'
           type='text'
           name='lastname'
           placeholder='Enter Last Name'
@@ -126,6 +122,7 @@ function App() {
 
         <label>Email*</label>
         <input
+          className='input-field'
           type='email'
           name='email'
           placeholder='Enter email'
@@ -136,6 +133,7 @@ function App() {
 
         <label>Contact*</label>
         <input
+          className='input-field'
           type='tel'
           name='contact'
           placeholder='Enter Mobile number'
@@ -145,7 +143,7 @@ function App() {
         <span style={{ color: "red", height: "20px" }}>{errors.contact}</span>
 
         <label>Gender*</label>
-        <div>
+        <div className='Gender'>
           <input
             type='radio'
             name='gender'
@@ -174,7 +172,7 @@ function App() {
         <span style={{ color: "red" , height: "20px" }}>{errors.gender}</span>
 
         <label>Your Best Subject</label>
-        <div>
+        <div className='Subjects'>
           <input
             type='checkbox'
             name='subjects'
@@ -213,6 +211,7 @@ function App() {
 
         <label>Url*</label>
         <input
+          className='input-field'
           type='url'
           name='url'
           placeholder='Enter Url'
@@ -223,6 +222,7 @@ function App() {
 
         <label>About</label>
         <textarea
+        className='About'
           name='about'
           placeholder='Tell About yourself'
           value={data.about}
