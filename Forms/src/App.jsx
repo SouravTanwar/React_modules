@@ -107,7 +107,7 @@ function App() {
           value={data.firstname}
           onChange={handleInput}
         />
-        <span style={{ color: "red", height: "20px"}}>{errors.firstname}</span>
+        <span>{errors.firstname}</span>
 
         <label>Last Name*</label>
         <input
@@ -118,7 +118,7 @@ function App() {
           value={data.lastname}
           onChange={handleInput}
         />
-        <span style={{ color: "red", height: "20px" }}>{errors.lastname}</span>
+        <span >{errors.lastname}</span>
 
         <label>Email*</label>
         <input
@@ -129,7 +129,7 @@ function App() {
           value={data.email}
           onChange={handleInput}
         />
-        <span style={{ color: "red", height: "20px" }}>{errors.email}</span>
+        <span >{errors.email}</span>
 
         <label>Contact*</label>
         <input
@@ -140,7 +140,7 @@ function App() {
           value={data.contact}
           onChange={handleInput}
         />
-        <span style={{ color: "red", height: "20px" }}>{errors.contact}</span>
+        <span >{errors.contact}</span>
 
         <label>Gender*</label>
         <div className='Gender'>
@@ -169,7 +169,7 @@ function App() {
           />
           <label>Other</label>
         </div>
-        <span style={{ color: "red" , height: "20px" }}>{errors.gender}</span>
+        <span >{errors.gender}</span>
 
         <label>Your Best Subject</label>
         <div className='Subjects'>
@@ -198,7 +198,7 @@ function App() {
           />
           <label>Math</label>
         </div>
-        <span style={{ height: "20px" }}></span>
+        <span ></span>
 
         <label>Upload Resume*</label>
         <input
@@ -207,7 +207,7 @@ function App() {
           id='fileInput'
           onChange={handleInput}
         />
-        <span style={{ color: "red", height: "20px" }}>{errors.resume}</span>
+        <span >{errors.resume}</span>
 
         <label>Url*</label>
         <input
@@ -218,7 +218,7 @@ function App() {
           value={data.url}
           onChange={handleInput}
         />
-        <span style={{ color: "red", height: "20px" }}>{errors.url}</span>
+        <span >{errors.url}</span>
 
         <label>About</label>
         <textarea
@@ -228,7 +228,7 @@ function App() {
           value={data.about}
           onChange={handleInput}
         />
-        <span style={{ height: "20px" }}></span>
+        <span ></span>
         
         <div
           style={{
