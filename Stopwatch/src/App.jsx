@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [time, setTime] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+
+  useEffect(() => {
+    let interval = null;
+    if (isRunning) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+      }, 1000);
+    } else if (!isRunning && time !== 0) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isRunning, time]);
+
+  const formatTime = () => {
+    const getSeconds = `0${time % 60}`.slice(-2);
+    const minutes = Math.floor(time / 60);
+    const getMinutes = `0${minutes % 60}`.slice(-2);
+    const getHours = `0${Math.floor(time / 3600)}`.slice(-2);
+    return `${getHours} : ${getMinutes} : ${getSeconds}`;
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="stopwatch-container">
+      <h1 className="title">Stopwatch</h1>
+      <div className="time-display">
+        {formatTime()}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <div className="button-container">
+        <button
+          className="control-button start-button"
+          onClick={() => setIsRunning(true)}
+        >
+          Start
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <button
+          className="control-button stop-button"
+          onClick={() => setIsRunning(false)}
+        >
+          Stop
+        </button>
+        <button
+          className="control-button reset-button"
+          onClick={() => {
+            setIsRunning(false);
+            setTime(0);
+          }}
+        >
+          Reset
+        </button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
+
