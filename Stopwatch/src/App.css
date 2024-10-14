@@ -1,0 +1,86 @@
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Stopwatch container */
+.stopwatch-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.title {
+    color: #333;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* Time display styling */
+.time-display {
+    font-size: 48px;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 240px;
+    text-align: center;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* General button styling */
+.control-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Start button styling */
+.start-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.start-button:hover {
+    background-color: #218838;
+}
+
+/* Stop button styling */
+.stop-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.stop-button:hover {
+    background-color: #c82333;
+}
+
+/* Reset button styling */
+.reset-button {
+    background-color: #ffc107;
+    color: white;
+}
+
+.reset-button:hover {
+    background-color: #e0a800;
+}
