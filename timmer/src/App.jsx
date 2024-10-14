@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import 'App.css'
 
 function App() {
   // State for hours, minutes, seconds, and active timer status
